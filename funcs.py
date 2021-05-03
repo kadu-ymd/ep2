@@ -49,3 +49,9 @@ def lista_movimentos_possiveis(bar, ind):
                 return [3]
             else:
                 return []
+
+def empilha(cartas, origem, destino):
+    cartas[destino] = cartas[origem]
+    del cartas[origem]
+    return cartas
+
