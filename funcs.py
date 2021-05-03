@@ -55,3 +55,23 @@ def empilha(cartas, origem, destino):
     del cartas[origem]
     return cartas
 
+def possui_movimentos_possiveis(cartas):
+    valor = []
+    naipe = []
+
+    for e in cartas: 
+        if len(e) == 3:
+            valor.append(e[0] + e[1])
+        else:
+            valor.append(e[0])
+    for e in cartas:
+        if len(e) == 3:
+            naipe.append(e[2])
+        else:
+            naipe.append(e[1])
+
+    for i in range(1, len(valor)):
+        if (valor[i] == valor[i - 1]) or (valor[i] == valor[i - 3]) or (naipe[i] == naipe[i - 1]) or (naipe[i] == naipe[i - 3]):
+            return True
+        else:
+            return False
