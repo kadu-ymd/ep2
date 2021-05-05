@@ -75,3 +75,8 @@ def possui_movimentos_possiveis(cartas):
             return True
         else:
             return False
+
+def rand_lista(lista):
+    import random
+    random.shuffle(lista)
+    return lista
