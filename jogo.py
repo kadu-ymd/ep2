@@ -13,7 +13,7 @@ print("2. As duas cartas possuem o mesmo naipe.\n")
 print("Desde que alguma das condições acima seja satisfeita, qualquer carta pode ser movimentada.\n")
 print(input('Aperte [Enter] para continuar...'))
 
-jogando = True
+verif_ind = True
 
 naipes = ['♠', '♥', '♦', '♣']
 cores = ['\33[91m', '\33[92m', '\33[93m', '\33[94m']
@@ -32,10 +32,11 @@ for carta in baralho:
     i += 1
 
 indice = int(input('Escolha uma carta (digite um número entre 1 e 52): '))
-while jogando:
+while verif_ind:
     if not indice in range(1, 53):
         indice = int(input('Posição inválida. Por favor, digite um número entre 1 e 52): '))
     else:
-        jogando = False
+        verif_ind = False
 
-
+# if lista_movimentos_possiveis(baralho, indice) == []:
+#     print('A carta {0} não pode ser movida. Por favor, digite um número entre 1 e 52): '.format(carta))
