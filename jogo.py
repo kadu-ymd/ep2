@@ -15,10 +15,20 @@ print(input('Aperte [Enter] para continuar...'))
 
 jogando = True
 
+naipes = ['♠', '♥', '♦', '♣']
+cores = ['\33[91m', '\33[92m', '\33[93m', '\33[94m']
 baralho = rand_lista(cria_baralho())
 i = 1
+
 for carta in baralho:
-    print('{0}. {1}'.format(i, carta))
+    if extrai_naipe(carta) == '♠':
+        print('{0}. {1}{2}{3}'.format(i, '\33[91m', carta, '\33[0m'))
+    if extrai_naipe(carta) == '♥':
+        print('{0}. {1}{2}{3}'.format(i, '\33[92m', carta, '\33[0m'))
+    if extrai_naipe(carta) == '♦':
+        print('{0}. {1}{2}{3}'.format(i, '\33[93m', carta, '\33[0m'))
+    if extrai_naipe(carta) == '♣':
+        print('{0}. {1}{2}{3}'.format(i, '\33[94m', carta, '\33[0m'))
     i += 1
 
 indice = int(input('Escolha uma carta (digite um número entre 1 e 52): '))
