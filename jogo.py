@@ -18,3 +18,16 @@ print('')
 print("Desde que alguma das condições acima seja satisfeita, qualquer carta pode ser movimentada.")
 print('')
 print(input('Aperte [Enter] para continuar...'))
+print('')
+print('O estado atual do baralho é:')
+print('')
+print('1.  K♣ ')
+print('2.  3♠ ')
+print('')
+numero_da_carta= int(input('Escolha uma carta (digite um número entre 1 e 52):'))
+
+if numero_da_carta > 52 or numero_da_carta < 1:
+    novo_numero = int(input('Posição inválida. Por favor, digite um número entre 1 e 52):'))
+else:
+    numero_da_carta 
+
