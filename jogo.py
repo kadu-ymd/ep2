@@ -33,7 +33,7 @@ for carta in baralho:
 
 indice = int(input('Escolha uma carta (digite um número entre 1 e 52): '))
 while jogando:
-    if not (indice in range(1, 52)):
+    if not indice in range(1, 53):
         indice = int(input('Posição inválida. Por favor, digite um número entre 1 e 52): '))
     else:
         jogando = False
