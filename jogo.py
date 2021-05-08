@@ -31,12 +31,16 @@ for carta in baralho:
         print('{0}. {1}{2}{3}'.format(i, '\33[94m', carta, '\33[0m'))
     i += 1
 
+
 indice = int(input('Escolha uma carta (digite um número entre 1 e 52): '))
 while verif_ind:
-    if not indice in range(1, 53):
-        indice = int(input('Posição inválida. Por favor, digite um número entre 1 e 52): '))
+    if not indice in range(1, len(baralho) + 1):
+        indice = int(input('Posição inválida. Por favor, digite um número entre 1 e 52): '))  
     else:
-        verif_ind = False
+        verif_ind = False    
+ 
+
+
 
 # if lista_movimentos_possiveis(baralho, indice) == []:
 #     print('A carta {0} não pode ser movida. Por favor, digite um número entre 1 e 52): '.format(carta))
