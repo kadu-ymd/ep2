@@ -80,3 +80,14 @@ def rand_lista(lista):
     import random
     random.shuffle(lista)
     return lista
+
+# def cores_naipe(cartas):
+#     naipes = ['♠', '♥', '♦', '♣']
+#     cores = ['\33[91m', '\33[92m', '\33[93m', '\33[94m']
+#     cor0 = '\33[0m'
+#     carta_cor = 0
+#     for carta in cartas:
+#         for naipe in naipes:
+#             for cor in cores:
+#                 if extrai_naipe(carta) == naipe:
+#                     carta_cor = cor + carta + cor0
