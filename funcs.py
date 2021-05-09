@@ -81,13 +81,17 @@ def rand_lista(lista):
     random.shuffle(lista)
     return lista
 
-# def cores_naipe(cartas):
-#     naipes = ['♠', '♥', '♦', '♣']
-#     cores = ['\33[91m', '\33[92m', '\33[93m', '\33[94m']
-#     cor0 = '\33[0m'
-#     carta_cor = 0
-#     for carta in cartas:
-#         for naipe in naipes:
-#             for cor in cores:
-#                 if extrai_naipe(carta) == naipe:
-#                     carta_cor = cor + carta + cor0
+def print_jogo():
+    print('Paciência Acordeão')
+    print('==================\n')
+    print('Seja bem-vindo(a) ao jogo de Paciência Acordeão! O objetivo deste jogo é colocar todas as cartas em uma mesma pilha.\n')
+    print('{0}{1}{2}\n'.format('\033[1m', 'Regras do Jogo', '\033[0m'))
+    print('Existem apenas dois movimentos possíveis:\n')
+    print('1. Empilhar uma carta sobre a carta imediatamente anterior;')
+    print('2. Empilhar uma carta sobre a terceira carta anterior.\n')
+    print('Para que um movimento possa ser realizado basta que uma das duas condições abaixo seja atendida:\n')
+    print("1. As duas cartas possuem o mesmo valor ou")
+    print("2. As duas cartas possuem o mesmo naipe.\n")
+    print("Desde que alguma das condições acima seja satisfeita, qualquer carta pode ser movimentada.\n")
+    print(input('Aperte [Enter] para continuar...'))
+    return ''
