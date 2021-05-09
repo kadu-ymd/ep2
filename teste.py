@@ -25,3 +25,7 @@ print(cartas_cores)
 # instalar
 anaconda = 'conda install -c anaconda colorama'
 vscode = 'pip install colorama'
+
+from colorama import Fore, Back, Style
+print(Fore.RED + 'some red text' + Style.RESET_ALL)
+print('back to normal now')
