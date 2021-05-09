@@ -1,4 +1,5 @@
 import funcs
+import colorama
 
 print('Paciência Acordeão')
 print('==================\n')
@@ -46,16 +47,31 @@ while verif_ind:
     else:
         verif_ind = False    
 
+cartas_com_cor = []
 
 # COMEÇO DO JOGO
 while verif_mov:
     if funcs.lista_movimentos_possiveis(cartas, posicao) == []:
         posicao = int(input('A carta {0} não pode ser movida. Por favor, digite um número entre 1 e 52: '.format(baralho[posicao - 1])))
-    if funcs.lista_movimentos_possiveis(cartas, posicao) == [1]:
+    elif funcs.lista_movimentos_possiveis(cartas, posicao) == [1]:
         funcs.empilha(baralho, posicao - 1, posicao - 2)
-    if funcs.lista_movimentos_possiveis(cartas, posicao) == [3]:
+        
+    elif funcs.lista_movimentos_possiveis(cartas, posicao) == [3]:
         funcs.empilha(baralho, posicao - 1, posicao - 4)
-    if funcs.lista_movimentos_possiveis(cartas, posicao) == [1, 3]:
+    else: 
+        # funcs.lista_movimentos_possiveis(cartas, posicao) == [1, 3]:
         indice = int(input('Sobre qual carta você quer empilhar o {0}?'.format(baralho[posicao - 1])))
-        print('1. {0}{1}{2}'.format('\33[93m', baralho[posicao - 2], '\33[0m'))
-        print('2. {0}{1}{2}'.format('\33[93m', baralho[posicao - 4], '\33[0m'))
+        print(Fore.YELLOW + '1. {0}{1}{2}'.format( baralho[posicao - 2]))
+        print(Fore.RED + '1. {0}{1}{2}'.format( baralho[posicao - 2]))
+        # print('2. {0}{1}{2}'.format('\33[93m', baralho[posicao - 4], '\33[0m'))
+        # print(Fore.RED + 'some red text')
+
+# while verif_mov:
+#     if funcs.lista_movimentos_possiveis(cartas, posicao) == []:
+#         posicao = int(input('A carta {0} não pode ser movida. Por favor, digite um número entre 1 e 52: '.format(baralho[posicao - 1])))
+#     if funcs.lista_movimentos_possiveis(cartas, posicao) == [1]:
+#         funcs.empilha(baralho, posicao - 1, posicao - 2)
+#     if funcs.lista_movimentos_possiveis(cartas, posicao) == [3]:
+#         funcs.empilha(baralho, posicao - 1, posicao - 4)
+#     if funcs.lista_movimentos_possiveis(cartas, posicao) == [1, 3]:
+#         indice = int(input('Sobre qual carta você quer empilhar o {0}?'.format(baralho[posicao - 1])))
