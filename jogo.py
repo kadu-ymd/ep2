@@ -28,6 +28,11 @@ while quer_jogar:
         while lista_movimentos_possiveis(baralho, posicao - 1) == []: 
             posicao = int(input('A carta {0} não pode ser movida. Por favor, digite um número entre 1 e {1}: '.format(cor_carta(baralho[posicao - 1]), len(baralho))))
             print()
+            if not posicao in range(1, len(cartas) + 1):
+                posicao = int(input('Posição inválida. Por favor, digite um número entre 1 e {0}): '.format(len(baralho))))
+                print()
+            else:
+                posicao_ = False
 
         if lista_movimentos_possiveis(baralho, posicao - 1) == [1, 3]:
             print('Sobre qual carta você quer empilhar o {0}? '.format(cor_carta(baralho[posicao - 1])))
@@ -45,7 +50,7 @@ while quer_jogar:
         
         elif lista_movimentos_possiveis(baralho, posicao - 1) == [1]:
             baralho = empilha(baralho, posicao - 1, posicao - 2)
-        
+
         elif lista_movimentos_possiveis(baralho, posicao - 1) == [3]:
             baralho = empilha(baralho, posicao - 1, posicao - 4)
         

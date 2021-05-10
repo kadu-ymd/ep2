@@ -95,6 +95,7 @@ def print_jogo():
     print("Desde que alguma das condições acima seja satisfeita, qualquer carta pode ser movimentada.\n")
     print(input('Aperte [Enter] para continuar...'))
     return ''
+
 def cor_carta(carta):
     if extrai_naipe(carta) == '♠':
         return Fore.RED + carta + Style.RESET_ALL
