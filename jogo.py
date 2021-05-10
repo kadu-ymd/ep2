@@ -46,7 +46,7 @@ while possui_movimentos_possiveis(baralho) == True:
         elif qual == 2:
             baralho = empilha(baralho, posicao - 1, posicao - 4)
         else:
-            while qual not in range(1, 2):
+            while qual not in range(1, 3):
                 qual = int(input('Posição inválida. Por favor, digite 1 ou 2: '))
     elif lista_movimentos_possiveis(baralho, posicao - 1) == [1]:
         baralho = empilha(baralho, posicao - 1, posicao - 2)
