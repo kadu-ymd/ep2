@@ -1,3 +1,4 @@
+from colorama import Fore, Style
 def cria_baralho():
     baralho = ['2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'A♠', 'J♠', 'Q♠', 'K♠', '2♥', '3♥', 
     '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'A♥', 'J♥', 'Q♥', 'K♥', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'A♦', 'J♦', 'Q♦', 'K♦', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'A♣', 'J♣', 'Q♣', 'K♣']
@@ -73,8 +74,7 @@ def possui_movimentos_possiveis(cartas):
     for i in range(1, len(valor)):
         if (valor[i] == valor[i - 1]) or (valor[i] == valor[i - 3]) or (naipe[i] == naipe[i - 1]) or (naipe[i] == naipe[i - 3]):
             return True
-        else:
-            return False
+    return False
 
 def rand_lista(lista):
     import random
@@ -95,3 +95,45 @@ def print_jogo():
     print("Desde que alguma das condições acima seja satisfeita, qualquer carta pode ser movimentada.\n")
     print(input('Aperte [Enter] para continuar...'))
     return ''
+def cor_carta(carta):
+    if extrai_naipe(carta) == '♠':
+        return Fore.RED + carta + Style.RESET_ALL
+    if extrai_naipe(carta) == '♥':
+        return Fore.YELLOW + carta + Style.RESET_ALL
+    if extrai_naipe(carta) == '♦':
+        return Fore.GREEN + carta + Style.RESET_ALL
+    if extrai_naipe(carta) == '♣':
+        return Fore.BLUE + carta + Style.RESET_ALL
+
+def print_cor(baralho, i):
+    for carta in baralho:
+        if extrai_naipe(carta) == '♠':
+            print('{0}. {1}'.format(i, cor_carta(carta)))
+        if extrai_naipe(carta) == '♥':
+            print('{0}. {1}'.format(i, cor_carta(carta)))
+        if extrai_naipe(carta) == '♦':
+            print('{0}. {1}'.format(i, cor_carta(carta)))
+        if extrai_naipe(carta) == '♣':
+            print('{0}. {1}'.format(i, cor_carta(carta)))
+        i += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
