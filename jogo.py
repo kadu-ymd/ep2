@@ -51,9 +51,12 @@ while quer_jogar:
         
         if possui_movimentos_possiveis(baralho) == False:
             print('Você perdeu! :( \n')
-        
+            break
+
         if len(baralho) == 1:
             print('Você ganhou! :D \n')
+            break
+
     resposta = input('Deseja jogar novamente? Digite "n" para "não" e qualquer outra coisa para "sim". ')
     if resposta == 'n':
         break
