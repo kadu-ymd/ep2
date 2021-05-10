@@ -3,8 +3,8 @@ from colorama import Fore, Style
 
 print(print_jogo())
 
-verif_ind = True
-verif_mov = True
+posicao_ = True
+movimentos = True
 
 naipes = ['♠', '♥', '♦', '♣']
 cores = ['\33[91m', '\33[92m', '\33[93m', '\33[94m']
@@ -29,30 +29,32 @@ for carta in cartas:
     i += 1
 
 posicao = int(input('\nEscolha uma carta (digite um número entre 1 e 52): '))
-while verif_ind:
+while posicao_:
     if not posicao in range(1, len(cartas) + 1):
-        posicao = int(input('Posição inválida. Por favor, digite um número entre 1 e 52): '))  
+        posicao = int(input('Posição inválida. Por favor, digite um número entre 1 e {0}): '.format(len(baralho))))
     else:
-        verif_ind = False    
+        posicao_ = False    
 
 # COMEÇO DO JOGO
-while verif_mov:
-    if lista_movimentos_possiveis(cartas, posicao - 1) == []:
-        posicao = int(input('A carta {0} não pode ser movida. Por favor, digite um número entre 1 e 52: '.format(baralho[posicao - 1])))
-    elif lista_movimentos_possiveis(cartas, posicao) == [1, 3]:
-        indice = int(input('Sobre qual carta você quer empilhar o {0}?\n'.format(baralho[posicao - 1])))
-        print('1. {0}'.format(baralho[posicao - 1 - 1]))
-        print('2. {0}'.format(baralho[posicao - 1 - 3]))
-    elif lista_movimentos_possiveis(cartas, posicao - 1) == [1]:
-        empilha(baralho, posicao - 1, posicao - 1 - 1)
-    elif lista_movimentos_possiveis(cartas, posicao - 1) == [3]:
-        empilha(baralho, posicao - 1, posicao - 1 - 3)
-    else:
-        verif_mov = False
-        if len(baralho) == 1:
-            print('Vitória! Você é muito bom! :D')
+while possui_movimentos_possiveis(baralho) == True:
+    if lista_movimentos_possiveis(baralho, posicao - 1) == []:
+        posicao = int(input('A carta {0} não pode ser movida. Por favor, digite um número entre 1 e {1}: '.format(baralho[posicao - 1], len(baralho))))
+    elif lista_movimentos_possiveis(baralho, posicao - 1) == [1, 3]:
+        qual = int(input('Sobre qual carta você quer empilhar o {0}?\n1. {1} \n2. {2}\n'.format(baralho[posicao - 1], baralho[posicao - 2], baralho[posicao - 4])))
+        if qual == 1:
+            baralho = empilha(baralho, posicao - 1, posicao - 2)
+        elif qual == 2:
+            baralho = empilha(baralho, posicao - 1, posicao - 4)
         else:
-            print('Derrota! Tente mais uma vez! D:')
+            while qual not in range(1, 2):
+                qual = int(input('Posição inválida. Por favor, digite 1 ou 2: '))
+    elif lista_movimentos_possiveis(baralho, posicao - 1) == [1]:
+        baralho = empilha(baralho, posicao - 1, posicao - 2)
+    elif lista_movimentos_possiveis(baralho, posicao - 1) == [3]:
+        baralho = empilha(baralho, posicao - 1, posicao - 4)
+    if possui_movimentos_possiveis(baralho) == False:
+        print('Você perdeu! :( \nTente novamente!')
+
 
 # cond = True
 # while verif_mov:
